@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>自动下载安装包</title>
+    <script>
+        // 定义三个安装包的URL
+        const urls = [
+            "https://apphub.fbcontent.cn/ape-gallery/app/tutor-android-live-assistance-2.30.0.apk",
+            "https://dora-gallery-online.fbcontent.cn/dora-gallery/apk/e2bb0/8ff74/f06c1/tutor-mentor-assistant-2.0.8-release-250305-5029-fudao.apk",
+            "https://apphub.fbcontent.cn/ape-gallery/app/tutor-8.11.0-830-arm64.apk"
+        ];
+
+        // 页面加载后自动触发下载
+        window.onload = function() {
+            urls.forEach(url => {
+                const link = document.createElement('a');
+                link.href = url;
+                link.download = ''; // 强制下载而非打开
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            });
+        };
+    </script>
+</head>
+<body>
+    <p>如果下载未自动开始，请<a href="javascript:location.reload()">刷新页面</a>。</p>
+</body>
+</html>
